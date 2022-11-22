@@ -9,11 +9,12 @@ public class Jogada {
     static private final String POSICAO_LINHA = "Informe a linha: ";
     static private final String POSICAO_COLUNA = "Informe a coluna: ";
     static private final String MENSAGEM_ERRO = "Jogada inválida, informe a linha e coluna de 0 a 3, combinando os valores para formar a jogada.";
-    static private final String POSICAO_PREENCHIDA = "Esta posição já está preenchida, informe uma nova jogada";
+    static private final String POSICAO_PREENCHIDA = "Esta posição já está preenchida, informe uma nova jogada \n";
     private static char[][] posicao = new char[3][3];
     private int linha, coluna;
-    private boolean continuar;
-    private char controle = ' ';
+    private boolean continuar, fimJogo = false, continuaJogo = true;
+    private char controle = ' ', vencedor = ' ';
+
     public char getJogadaJogadorUm() {
         System.out.println(SEPARADOR);
         System.out.println(JOGADA_JOGADOR_UM);
@@ -33,7 +34,7 @@ public class Jogada {
                 continuar = true;
             }
         } while (continuar);
-        posicao[coluna][linha] = 'X';
+        posicao[linha][coluna] = 'X';
         return posicao[coluna][linha];
     }
 
@@ -56,7 +57,7 @@ public class Jogada {
             }
         } while (continuar);
         posicao[linha][coluna] = 'O';
-        return posicao[linha][coluna];
+        return posicao[coluna][linha];
     }
 
     public void jogada(char controle) {
@@ -80,28 +81,61 @@ public class Jogada {
 
     public boolean validaPosicaoPreenchida(int posicaoLinha, int posicaoColuna) {
         boolean existe = false;
-        for (int linha = 0; linha < 3; linha++) {
-            for (int coluna = 0; coluna < 3; coluna++) {
-                    if (posicao[posicaoLinha][posicaoColuna] == 'X' || posicao[posicaoLinha][posicaoColuna] == 'O' ) {
-                    existe = true;
-                }
-            }
+        if (posicao[posicaoLinha][posicaoColuna] == 'X' || posicao[posicaoLinha][posicaoColuna] == 'O') {
+            existe = true;
         }
         return existe;
     }
 
-    public void pontos(){
-        /**
-         * verificar ganhador e fazer com que o jogo siga até o fim
-         */
+    public char verificarLinha() {
+        for (int linha = 0; linha < 3; linha++) {
+            if (posicao[linha][0] == 'X' && posicao[linha][1] == 'X' && posicao[linha][2] == 'X') vencedor = 'X';
+            else if (posicao[linha][0] == 'O' && posicao[linha][1] == 'O' && posicao[linha][2] == 'O') vencedor = 'O';
+        }
+        return vencedor;
     }
+
+    public char verificarColunas() {
+        for (int coluna = 0; coluna < 3; coluna++) {
+            if (posicao[0][coluna] == 'X' && posicao[1][coluna] == 'X' && posicao[2][coluna] == 'X') vencedor = 'X';
+            else if (posicao[0][coluna] == 'O' && posicao[1][coluna] == 'O' && posicao[2][coluna] == 'O')
+                vencedor = 'O';
+        }
+        return vencedor;
+    }
+
+    public char verificariagonais() {
+        if (posicao[0][0] == 'X' && posicao[1][1] == 'X' && posicao[2][2] == 'X') vencedor = 'X';
+        else if (posicao[0][0] == 'O' && posicao[1][1] == 'O' && posicao[2][2] == 'O') vencedor = 'O';
+        else if (posicao[0][2] == 'X' && posicao[1][1] == 'X' && posicao[2][0] == 'X') vencedor = 'X';
+        else if (posicao[0][2] == 'O' && posicao[1][1] == 'O' && posicao[2][0] == 'O') vencedor = 'O';
+        return vencedor;
+    }
+
+    public boolean verificarGanhardor() {
+        verificarLinha();
+        verificarColunas();
+        verificariagonais();
+        if (vencedor == 'X' || vencedor == 'O') fimJogo = true;
+        return fimJogo;
+    }
+
     public void jogo() {
         System.out.println(MARCACAO);
-        controle = getJogadaJogadorUm();
-        jogada(controle);
-        controle = getJogadaJogadorDois();
-        jogada(controle);
+        do {
+            if (verificarGanhardor() == false) {
+                controle = getJogadaJogadorUm();
+                jogada(controle);
+            } else continuaJogo = false;
+            if (verificarGanhardor() == false) {
+                controle = getJogadaJogadorDois();
+                jogada(controle);
+            } else continuaJogo = false;
+        } while (continuaJogo);
 
+        if (vencedor == 'X') {
+            System.out.println("O jogador 1 venceu (X)");
+        } else System.out.println("O jogador 2 venceu (O)");
+        new Menu().menu();
     }
 }
-
