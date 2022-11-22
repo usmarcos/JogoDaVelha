@@ -13,7 +13,7 @@ public class Jogada {
     private static char[][] posicao = new char[3][3];
     private int linha, coluna;
     private boolean continuar, fimJogo = false, continuaJogo = true;
-    private char controle = ' ', vencedor = ' ';
+    private char controle, vencedor;
 
     public char getJogadaJogadorUm() {
         System.out.println(SEPARADOR);
@@ -65,13 +65,13 @@ public class Jogada {
         for (int linha = 0; linha < 3; linha++) {
             for (int coluna = 0; coluna < 3; coluna++) {
                 if (posicao[linha][coluna] == 'X') {
-                    System.out.print("X");
+                    System.out.print(" X ");
                 } else if (posicao[linha][coluna] == 'O') {
-                    System.out.print("O");
+                    System.out.print(" O ");
                 } else if (posicao[linha][coluna] == controle) {
                     System.out.println(controle);
                 } else {
-                    System.out.print(" ");
+                    System.out.print("   ");
                 }
                 if (coluna != 2) System.out.print("|");
             }
