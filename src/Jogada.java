@@ -1,4 +1,3 @@
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.Scanner;
 
 public class Jogada {
@@ -103,7 +102,6 @@ public class Jogada {
         }
         return vencedor;
     }
-
     public char verificariagonais() {
         if (posicao[0][0] == 'X' && posicao[1][1] == 'X' && posicao[2][2] == 'X') vencedor = 'X';
         else if (posicao[0][0] == 'O' && posicao[1][1] == 'O' && posicao[2][2] == 'O') vencedor = 'O';
