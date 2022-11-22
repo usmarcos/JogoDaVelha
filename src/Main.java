@@ -3,7 +3,7 @@ public class Main {
         /**
          * Jogada da Velha, para conclusão da etapa de introdução a java
          */
-        System.out.println("# Menu da Velha #");
+        System.out.println("# Jogo da Velha #");
         new Menu().menu();
     }
 }
