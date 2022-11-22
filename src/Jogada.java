@@ -35,7 +35,7 @@ public class Jogada {
             }
         } while (continuar);
         posicao[linha][coluna] = 'X';
-        return posicao[coluna][linha];
+        return posicao[linha][coluna];
     }
 
     public char getJogadaJogadorDois() {
@@ -57,7 +57,7 @@ public class Jogada {
             }
         } while (continuar);
         posicao[linha][coluna] = 'O';
-        return posicao[coluna][linha];
+        return posicao[linha][coluna];
     }
 
     public void jogada(char controle) {
