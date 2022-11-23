@@ -8,7 +8,7 @@ public class Jogada {
     static private final String POSICAO_LINHA = "Informe a linha: ";
     static private final String POSICAO_COLUNA = "Informe a coluna: ";
     static private final String MENSAGEM_ERRO = "Jogada inválida, informe a linha e coluna de 0 a 3, combinando os valores para formar a jogada.";
-    static private final String POSICAO_PREENCHIDA = "Esta posição já está preenchida, informe uma nova jogada \n";
+    static private final String POSICAO_PREENCHIDA = "Esta posição já está preenchida, informe uma nova jogada. \n";
     private static char[][] posicao = new char[3][3];
     private int linha, coluna;
     private boolean continuar, fimJogo = false, continuaJogo = true;
@@ -110,7 +110,7 @@ public class Jogada {
         return vencedor;
     }
 
-    public boolean verificarGanhardor() {
+    public boolean verificarGanhador() {
         verificarLinha();
         verificarColunas();
         verificariagonais();
@@ -121,16 +121,16 @@ public class Jogada {
     public void jogo() {
         System.out.println(MARCACAO);
         do {
-            if (verificarGanhardor() == false) {
+            if (verificarGanhador() == false) {
                 controle = getJogadaJogadorUm();
                 jogada(controle);
             } else continuaJogo = false;
-            if (verificarGanhardor() == false) {
+            if (verificarGanhador() == false) {
                 controle = getJogadaJogadorDois();
                 jogada(controle);
             } else continuaJogo = false;
-        } while (continuaJogo);
 
+        } while (continuaJogo);
         if (vencedor == 'X') {
             System.out.println("O jogador 1 venceu (X)");
         } else System.out.println("O jogador 2 venceu (O)");
