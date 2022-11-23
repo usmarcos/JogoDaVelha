@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ba4b9e2-98d4-4112-b16f-2e3249fd0232" name="Changes" comment="Criando a validação de quando há velha e invertendo método de verificação.">
+    <list default="true" id="0ba4b9e2-98d4-4112-b16f-2e3249fd0232" name="Changes" comment="Tentando criar melhor de 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jogada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jogada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +20,15 @@
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Jogada.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -118,7 +127,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669171487045</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Criando o reset para o próximo game e resolvendo o último bug da velha.">
+      <created>1669175150919</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669175150919</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Tentando criar melhor de 3">
+      <created>1669208299896</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669208299896</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,6 +160,23 @@
     <MESSAGE value="Finalizando jogo base." />
     <MESSAGE value="Finalizando jogo base. Correção bug." />
     <MESSAGE value="Criando a validação de quando há velha e invertendo método de verificação." />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando a validação de quando há velha e invertendo método de verificação." />
+    <MESSAGE value="Criando o reset para o próximo game e resolvendo o último bug da velha." />
+    <MESSAGE value="Tentando criar melhor de 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tentando criar melhor de 3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Jogada.java</url>
+          <line>211</line>
+          <properties class="Jogada" method="verificaSegundaRodada">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
