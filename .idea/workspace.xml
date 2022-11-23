@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ba4b9e2-98d4-4112-b16f-2e3249fd0232" name="Changes" comment="Tentando criar melhor de 3">
+    <list default="true" id="0ba4b9e2-98d4-4112-b16f-2e3249fd0232" name="Changes" comment="Corrigindo as classes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jogada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jogada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/metodos/Jogada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metodos/Jogada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/metodos/Jogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metodos/Jogo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/metodos/Mensagens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metodos/Mensagens.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +29,23 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="master" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="usmarcos" />
+        <option name="repository" value="JogoDaVelha" />
+      </RepoCoordinatesHolder>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/Jogada.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/metodos/Jogada.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -41,13 +58,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowDebug.ShowToolbar": "false"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -141,7 +159,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669208299896</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Finalizando a criação da melhor de três e ajustes nas validações.">
+      <created>1669216233427</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669216233427</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Corrigindo as classes.">
+      <created>1669221063048</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669221063048</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,19 +194,17 @@
     <MESSAGE value="Criando a validação de quando há velha e invertendo método de verificação." />
     <MESSAGE value="Criando o reset para o próximo game e resolvendo o último bug da velha." />
     <MESSAGE value="Tentando criar melhor de 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tentando criar melhor de 3" />
+    <MESSAGE value="Finalizando a criação da melhor de três e ajustes nas validações." />
+    <MESSAGE value="Corrigindo as classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrigindo as classes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Jogada.java</url>
-          <line>211</line>
-          <properties class="Jogada" method="verificaSegundaRodada">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="8" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/metodos/Jogada.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,3 +1,7 @@
+package menu;
+
+import metodos.Jogo;
+import texto.Tabuleiro;
 import java.util.Scanner;
 
 public class Menu {
@@ -21,12 +25,12 @@ public class Menu {
         switch (opcao) {
             case 1:
                 System.out.println("Iniciando novo jogo.");
-                new Jogada().jogo();
+                new Jogo().jogo();
                 break;
                 case 2:
                 System.out.println("Iniciando novo jogo de melhor de três");
                 System.out.println("Esse modo de jogo consiste em 3 rodadas que defeniram um vencedor ou empate.\n");
-                new Jogada().melhorDeTres();
+                new Jogo().melhorDeTres();
                 break;
             case 3:
                 new Tabuleiro().montaTabulerioExemplo();
