@@ -2,7 +2,35 @@ package metodos;
 
 import menu.Menu;
 
-public class Jogo extends Jogada{
+public class Jogo extends Jogada {
+    public void jogo() {
+        System.out.println(MARCACAO);
+        do {
+            if (velha == 9) continuaJogo = false;
+                //se for falso passa ou pode ser usado verificarGanhador()==false;
+            else if (!verificarGanhador()) {
+                controle = getJogadaJogadorUm();
+                jogada(controle);
+                velha++;
+            } else continuaJogo = false;
+            if (velha == 9) continuaJogo = false;
+                //se for falso passa ou pode ser usado verificarGanhador()==false;
+            else if (!verificarGanhador()) {
+                controle = getJogadaJogadorDois();
+                jogada(controle);
+                velha++;
+            } else continuaJogo = false;
+        } while (continuaJogo);
+        if (velha == 9) System.out.println(SEM_VENCEDORES);
+        if (vencedor == 'X') {
+            System.out.println(VENCEDOR_X);
+        } else if (vencedor == 'O') {
+            System.out.println(VENCEDOR_O);
+        }
+        reset();
+        new Menu().menu();
+    }
+
     public void melhorDeTres() {
         System.out.println(MARCACAO);
         System.out.println(MELHOR_DE_TRES);
