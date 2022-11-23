@@ -115,15 +115,37 @@ public class Jogada {
         return fimJogo;
     }
 
+    public void reset() {
+        //resete matriz
+        for (int linha = 0; linha < 3; linha++) {
+            for (int coluna = 0; coluna < 3; coluna++) {
+                posicao[linha][coluna] = ' ';
+            }
+        }
+        //reset das linhas, colunas e contador da velha.
+        linha = 0;
+        coluna = 0;
+        velha = 0;
+        //reset dos controladores
+        continuar = false;
+        fimJogo = false;
+        continuaJogo = true;
+        //reset das tomadas de descisão
+        controle = ' ';
+        vencedor = ' ';
+    }
+
     public void jogo() {
         System.out.println(MARCACAO);
         do {
-            if (verificarGanhador() == false || velha != 9) {
+            if (velha == 9) continuaJogo = false;
+            else if (verificarGanhador() == false) {
                 controle = getJogadaJogadorUm();
                 jogada(controle);
                 velha++;
             } else continuaJogo = false;
-            if (verificarGanhador() == false || velha != 9) {
+            if (velha == 9) continuaJogo = false;
+            else if (verificarGanhador() == false) {
                 controle = getJogadaJogadorDois();
                 jogada(controle);
                 velha++;
@@ -132,8 +154,10 @@ public class Jogada {
         if (velha == 9) System.out.println("\nVELHA, não há vencedores. Inicie uma nova partida.");
         if (vencedor == 'X') {
             System.out.println("\nO jogador 1 venceu (X)");
-        } else System.out.println("\nO jogador 2 venceu (O)");
+        } else if (vencedor == 'O') {
+            System.out.println("\nO jogador 2 venceu (O)");
+        }
+        reset();
         new Menu().menu();
     }
 }
-//Exemplo para dar velha: 00 01 02 10 11 12 21 20 22
