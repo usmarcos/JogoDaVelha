@@ -1,24 +1,14 @@
-import java.util.Scanner;
+package metodos;
 
-public class Jogada {
-    static private final String SEPARADOR = "\n------------------";
-    static private final String MARCACAO = "Jogador 1 será o X \nJogador 2 será o O";
-    static private final String MELHOR_DE_TRES = "\nINICIANDO MELHOR DE TRES";
-    static private final String PRIMEIRA_RODADA = "\nPRIMEIRA RODADA";
-    static private final String SEGUNDA_RODADA = "\nSEGUNDA RODADA";
-    static private final String TERCEIRA_RODADA = "\nTERCEIRA RODADA";
-    static private final String JOGADA_JOGADOR_UM = "• Jogador 1 é sua vez";
-    static private final String JOGADA_JOGADOR_DOIS = "• Jogador 2 é sua vez";
-    static private final String POSICAO_LINHA = "Informe a linha: ";
-    static private final String POSICAO_COLUNA = "Informe a coluna: ";
-    static private final String MENSAGEM_ERRO = "Jogada inválida, informe a linha e coluna de 0 a 3, combinando os valores para formar a jogada.\n";
-    static private final String POSICAO_PREENCHIDA = "Esta posição já está preenchida, informe uma nova jogada. \n";
+import menu.Menu;
+
+import java.util.Scanner;
+public class Jogada extends Mensagens {
     private char[][] posicao = new char[3][3];
     private String[] historicoGanhador = new String[3];
     private int linha, coluna, velha;
     private boolean continuar, fimJogo = false, continuaJogo = true;
     private char controle, vencedor;
-
 
     private char getJogadaJogadorUm() {
         System.out.println(SEPARADOR);
@@ -158,11 +148,11 @@ public class Jogada {
                 velha++;
             } else continuaJogo = false;
         } while (continuaJogo);
-        if (velha == 9) System.out.println("\nVELHA, não há vencedores. Inicie uma nova partida.");
+        if (velha == 9) System.out.println(SEM_VENCEDORES);
         if (vencedor == 'X') {
-            System.out.println("\nO jogador 1 venceu (X)");
+            System.out.println(VENCEDOR_X);
         } else if (vencedor == 'O') {
-            System.out.println("\nO jogador 2 venceu (O)");
+            System.out.println(VENCEDOR_O);
         }
         reset();
         new Menu().menu();
@@ -192,16 +182,16 @@ public class Jogada {
             }
         } catch (NullPointerException e) {}
         System.out.println(SEPARADOR);
-        System.out.println("O jogador 1 fez " + jogadorUm + " pontos.");
-        System.out.println("O jogador 2 fez " + jogadorDois + " pontos.");
-        if (velha != 0)System.out.println("Houveram " + velha + " empates (velha).");
-        else System.out.println("Não houveram empates (velha)");
+        System.out.printf(PONTOS_JOGADOR_UM, jogadorUm);
+        System.out.printf(PONTOS_JOGADOR_DOIS, jogadorDois);
+        if (velha != 0)System.out.printf(VELHA, velha);
+        else if (velha == 3) System.out.println(SEM_VENCEDORES);
         System.out.println(SEPARADOR);
-        if (jogadorUm == 3 || jogadorUm == 2) System.out.println("O vencedor foi o jogador 1!");
-        else if (velha == 2 && jogadorUm == 1) System.out.println("O vencedor foi o jogador 1!");
-        if (jogadorDois == 3 || jogadorDois == 2) System.out.println("O vencedor foi o jogador 2!");
-        else if (velha == 2 && jogadorDois == 1) System.out.println("O vencedor foi o jogador 2!");
-        if (velha == 3) System.out.println("Não houve vencedores");
+        if (jogadorUm == 3 || jogadorUm == 2) System.out.println(VENCEDOR_UM);
+        else if (velha == 2 && jogadorUm == 1) System.out.println(VENCEDOR_UM);
+        if (jogadorDois == 3 || jogadorDois == 2) System.out.println(VENCEDOR_DOIS);
+        else if (velha == 2 && jogadorDois == 1) System.out.println(VENCEDOR_DOIS);
+        if (velha == 3) System.out.println(NAO_HOUVERAM_VENCEDORES);
     }
 
     private void imprimePlacar() {
@@ -260,11 +250,11 @@ public class Jogada {
 
             } while (continuaJogo);
 
-            if (velha == 9) System.out.println("\nVELHA.");
+            if (velha == 9) System.out.println(SEM_VENCEDORES);
             if (vencedor == 'X') {
-                System.out.println("\nO jogador 1 venceu (X)");
+                System.out.println(VENCEDOR_X);
             } else if (vencedor == 'O') {
-                System.out.println("\nO jogador 2 venceu (O)");
+                System.out.println(VENCEDOR_O);
             }
             setPlacar();
             //na segunda rodada verifica se o jogo já terminou, tendo duas vitórias
@@ -275,7 +265,7 @@ public class Jogada {
             reset();
         } while (melhorDeTres != 4);
         System.out.println(SEPARADOR);
-        System.out.println("\nRESULTADO");
+        System.out.println(RESULTADO);
         imprimePlacar();
         getPlacar();
         reset();

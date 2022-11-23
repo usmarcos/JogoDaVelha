@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ba4b9e2-98d4-4112-b16f-2e3249fd0232" name="Changes" comment="Tentando criar melhor de 3">
+    <list default="true" id="0ba4b9e2-98d4-4112-b16f-2e3249fd0232" name="Changes" comment="Finalizando a criação da melhor de três e ajustes nas validações.">
+      <change afterPath="$PROJECT_DIR$/src/metodos/Mensagens.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jogada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jogada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jogada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metodos/Jogada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tabuleiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/texto/Tabuleiro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +30,23 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="master" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="usmarcos" />
+        <option name="repository" value="JogoDaVelha" />
+      </RepoCoordinatesHolder>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/Jogada.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/metodos/Jogada.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -141,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669208299896</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Finalizando a criação da melhor de três e ajustes nas validações.">
+      <created>1669216233427</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669216233427</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,21 +187,7 @@
     <MESSAGE value="Criando a validação de quando há velha e invertendo método de verificação." />
     <MESSAGE value="Criando o reset para o próximo game e resolvendo o último bug da velha." />
     <MESSAGE value="Tentando criar melhor de 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tentando criar melhor de 3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Jogada.java</url>
-          <line>211</line>
-          <properties class="Jogada" method="verificaSegundaRodada">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Finalizando a criação da melhor de três e ajustes nas validações." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizando a criação da melhor de três e ajustes nas validações." />
   </component>
 </project>

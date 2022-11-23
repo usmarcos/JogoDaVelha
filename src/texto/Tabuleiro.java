@@ -1,3 +1,7 @@
+package texto;
+
+import menu.Menu;
+
 public class Tabuleiro {
     public void montaTabulerioExemplo() {
         System.out.println("\nNo modo básico do jogo, participam duas pessoas, que jogam alternadamente, preenchendo cada um dos espaços vazios. " +

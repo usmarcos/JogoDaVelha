@@ -1,3 +1,8 @@
+package menu;
+
+import metodos.Jogada;
+import texto.Tabuleiro;
+
 import java.util.Scanner;
 
 public class Menu {
