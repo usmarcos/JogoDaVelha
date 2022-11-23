@@ -7,10 +7,10 @@ public class Jogada {
     static private final String JOGADA_JOGADOR_DOIS = "• Jogador 2 é sua vez";
     static private final String POSICAO_LINHA = "Informe a linha: ";
     static private final String POSICAO_COLUNA = "Informe a coluna: ";
-    static private final String MENSAGEM_ERRO = "Jogada inválida, informe a linha e coluna de 0 a 3, combinando os valores para formar a jogada.";
+    static private final String MENSAGEM_ERRO = "Jogada inválida, informe a linha e coluna de 0 a 3, combinando os valores para formar a jogada.\n";
     static private final String POSICAO_PREENCHIDA = "Esta posição já está preenchida, informe uma nova jogada. \n";
     private static char[][] posicao = new char[3][3];
-    private int linha, coluna;
+    private int linha, coluna, velha;
     private boolean continuar, fimJogo = false, continuaJogo = true;
     private char controle, vencedor;
 
@@ -23,13 +23,11 @@ public class Jogada {
             linha = new Scanner(System.in).nextInt();
             System.out.print(POSICAO_COLUNA);
             coluna = new Scanner(System.in).nextInt();
-            //valida se já está preenchido
-            if (validaPosicaoPreenchida(linha, coluna) == true) {
-                System.out.println(POSICAO_PREENCHIDA);
-                continuar = true;
-            }
             if (linha < 0 || linha >= 3 && coluna < 0 || coluna >= 3) {
                 System.out.println(MENSAGEM_ERRO);
+                continuar = true;
+            } else if (validaPosicaoPreenchida(linha, coluna) == true) {
+                System.out.println(POSICAO_PREENCHIDA);
                 continuar = true;
             }
         } while (continuar);
@@ -46,12 +44,11 @@ public class Jogada {
             linha = new Scanner(System.in).nextInt();
             System.out.print(POSICAO_COLUNA);
             coluna = new Scanner(System.in).nextInt();
-            if (validaPosicaoPreenchida(linha, coluna) == true) {
-                System.out.println(POSICAO_PREENCHIDA);
-                continuar = true;
-            }
             if (linha < 0 || linha >= 3 && coluna < 0 || coluna >= 3) {
                 System.out.println(MENSAGEM_ERRO);
+                continuar = true;
+            } else if (validaPosicaoPreenchida(linha, coluna) == true) {
+                System.out.println(POSICAO_PREENCHIDA);
                 continuar = true;
             }
         } while (continuar);
@@ -60,7 +57,6 @@ public class Jogada {
     }
 
     public void jogada(char controle) {
-        //montando jogada
         for (int linha = 0; linha < 3; linha++) {
             for (int coluna = 0; coluna < 3; coluna++) {
                 if (posicao[linha][coluna] == 'X') {
@@ -102,6 +98,7 @@ public class Jogada {
         }
         return vencedor;
     }
+
     public char verificariagonais() {
         if (posicao[0][0] == 'X' && posicao[1][1] == 'X' && posicao[2][2] == 'X') vencedor = 'X';
         else if (posicao[0][0] == 'O' && posicao[1][1] == 'O' && posicao[2][2] == 'O') vencedor = 'O';
@@ -121,19 +118,22 @@ public class Jogada {
     public void jogo() {
         System.out.println(MARCACAO);
         do {
-            if (verificarGanhador() == false) {
+            if (verificarGanhador() == false || velha != 9) {
                 controle = getJogadaJogadorUm();
                 jogada(controle);
+                velha++;
             } else continuaJogo = false;
-            if (verificarGanhador() == false) {
+            if (verificarGanhador() == false || velha != 9) {
                 controle = getJogadaJogadorDois();
                 jogada(controle);
+                velha++;
             } else continuaJogo = false;
-
         } while (continuaJogo);
+        if (velha == 9) System.out.println("\nVELHA, não há vencedores. Inicie uma nova partida.");
         if (vencedor == 'X') {
-            System.out.println("O jogador 1 venceu (X)");
-        } else System.out.println("O jogador 2 venceu (O)");
+            System.out.println("\nO jogador 1 venceu (X)");
+        } else System.out.println("\nO jogador 2 venceu (O)");
         new Menu().menu();
     }
 }
+//Exemplo para dar velha: 00 01 02 10 11 12 21 20 22
