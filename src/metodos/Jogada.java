@@ -3,7 +3,7 @@ package metodos;
 import java.util.Scanner;
 public class Jogada extends Mensagens {
     private char[][] posicao = new char[3][3];
-    private String[] historicoGanhador = new String[3];
+    private String[] historicoGanhador = new String[100];
     int linha, coluna, velha;
     boolean continuar, fimJogo = false, continuaJogo = true;
     char controle, vencedor;
@@ -142,29 +142,29 @@ public class Jogada extends Mensagens {
         }
     }
 
-    protected void getPlacar() {
+    protected void getPlacar(int rodada) {
         int jogadorUm = 0, jogadorDois = 0, velha = 0;
         //por conta da exceção de quando compara com null
         try {
-            for (int i = 0; i < historicoGanhador.length; i++) {
-                if (historicoGanhador[i].equals("Jogador 1")) jogadorUm++;
+            for (int i = 0; i <= rodada; i++) {
+                if (historicoGanhador[i].isEmpty()) break;
+                else if (historicoGanhador[i].equals("Jogador 1")) jogadorUm++;
                 else if (historicoGanhador[i].equals("Jogador 2")) jogadorDois++;
                 else if (historicoGanhador[i].equals("VELHA")) velha++;
             }
         } catch (NullPointerException e) {
+            //quando for nulo vai apenas seguir...
         }
         System.out.println(SEPARADOR);
         System.out.printf(PONTOS_JOGADOR_UM, jogadorUm);
         System.out.printf(PONTOS_JOGADOR_DOIS, jogadorDois);
         if (velha != 0) System.out.printf(VELHA, velha);
-        else if (velha == 3) System.out.println(SEM_VENCEDORES);
+            //verifica se deu velha em todas as rodadas
+        else if (velha == rodada) System.out.println(SEM_VENCEDORES);
         System.out.println(SEPARADOR);
-        if (jogadorUm == 3 || jogadorUm == 2) System.out.println(VENCEDOR_UM);
-        else if (velha == 2 && jogadorUm == 1) System.out.println(VENCEDOR_UM);
-        if (jogadorDois == 3 || jogadorDois == 2) System.out.println(VENCEDOR_DOIS);
-        else if (velha == 2 && jogadorDois == 1) System.out.println(VENCEDOR_DOIS);
-        if (velha == 3 && jogadorUm == 1) System.out.println(NAO_HOUVERAM_VENCEDORES);
-        else if (velha == 3 && jogadorDois == 1) System.out.println(NAO_HOUVERAM_VENCEDORES);
+        if (jogadorUm > jogadorDois && jogadorUm > velha) System.out.println(VENCEDOR_UM);
+        if (jogadorDois > jogadorUm && jogadorDois > velha) System.out.println(VENCEDOR_DOIS);
+        if (velha > jogadorUm && velha > jogadorDois) System.out.println(NAO_HOUVERAM_VENCEDORES);
     }
 
     protected void imprimePlacar() {
@@ -188,8 +188,6 @@ public class Jogada extends Mensagens {
         else if (jogadorDois == 2) fim = true;
         return fim;
     }
-
-
 }
 //Exemplo para dar velha: 00 01 02 10 11 12 21 20 22
 //Exemplo ganhar horizontalmente : 10 20 11 21 12
