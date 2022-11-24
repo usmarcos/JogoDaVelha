@@ -3,6 +3,8 @@ package metodos;
 import java.util.Scanner;
 public class Jogada extends Mensagens {
     private char[][] posicao = new char[3][3];
+    //para não utilizar um array dinâmico usando "add" preferi setar um valor,
+    //pois não foi passado durante as aulas
     private String[] historicoGanhador = new String[100];
     int linha, coluna, velha;
     boolean continuar, fimJogo = false, continuaJogo = true;
@@ -17,12 +19,20 @@ public class Jogada extends Mensagens {
             linha = new Scanner(System.in).nextInt();
             System.out.print(POSICAO_COLUNA);
             coluna = new Scanner(System.in).nextInt();
+            /*
             if ((linha < 0 || linha >= 3) || (coluna < 0 || coluna >= 3)) {
                 System.out.println(MENSAGEM_ERRO);
                 continuar = true;
                 //quando for verdadeiro passa ou comparar usando == true
-            } else if (validaPosicaoPreenchida(linha, coluna)) {
-                System.out.println(POSICAO_PREENCHIDA);
+            } else*/
+            //substituindo a validação feita com IF por try catch para quando estoura o erro de preencher matriz onde não tem indice.
+            try {
+                if (validaPosicaoPreenchida(linha, coluna)) {
+                    System.out.println(POSICAO_PREENCHIDA);
+                    continuar = true;
+                }
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println(MENSAGEM_ERRO);
                 continuar = true;
             }
         } while (continuar);
@@ -39,12 +49,19 @@ public class Jogada extends Mensagens {
             linha = new Scanner(System.in).nextInt();
             System.out.print(POSICAO_COLUNA);
             coluna = new Scanner(System.in).nextInt();
-            if ((linha < 0 || linha >= 3) || (coluna < 0 || coluna >= 3)) {
+            /*if ((linha < 0 || linha >= 3) || (coluna < 0 || coluna >= 3)) {
                 System.out.println(MENSAGEM_ERRO);
                 continuar = true;
                 //quando for verdadeiro passa ou comparar usando == true
-            } else if (validaPosicaoPreenchida(linha, coluna)) {
-                System.out.println(POSICAO_PREENCHIDA);
+            } else */
+            //substituindo a validação feita com IF por try catch para quando estoura o erro de preencher matriz onde não tem indice.
+            try {
+                if (validaPosicaoPreenchida(linha, coluna)) {
+                    System.out.println(POSICAO_PREENCHIDA);
+                    continuar = true;
+                }
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println(MENSAGEM_ERRO);
                 continuar = true;
             }
         } while (continuar);
@@ -153,7 +170,8 @@ public class Jogada extends Mensagens {
                 else if (historicoGanhador[i].equals("VELHA")) velha++;
             }
         } catch (NullPointerException e) {
-            //quando for nulo vai apenas seguir...
+            //quando for nulo vai apenas seguir pois não interfere no funcionamento.
+            //apenas quando ele mapeia um nullo não gerar exceção por conta do método equals.
         }
         System.out.println(SEPARADOR);
         System.out.printf(PONTOS_JOGADOR_UM, jogadorUm);

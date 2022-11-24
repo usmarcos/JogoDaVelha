@@ -11,7 +11,7 @@ public class Mensagens {
     final String JOGADA_JOGADOR_DOIS = "• Jogador 2 é sua vez!";
     final String POSICAO_LINHA = "Informe a linha: ";
     final String POSICAO_COLUNA = "Informe a coluna: ";
-    final String MENSAGEM_ERRO = "Jogada inválida, informe a linha e coluna de 0 a 3, combinando os valores para formar a jogada.\n";
+    final String MENSAGEM_ERRO = "Jogada inválida, informe a linha e coluna de 0 a 2, combinando os valores para formar a jogada.\n";
     final String POSICAO_PREENCHIDA = "Esta posição já está preenchida, informe uma nova jogada. \n";
     final String SEM_VENCEDORES = "\nVELHA, não há vencedores. Inicie uma nova partida.";
     final String VENCEDOR_X = "\nO jogador 1 venceu (X)";
