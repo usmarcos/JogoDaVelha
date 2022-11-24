@@ -188,13 +188,6 @@ public class Jogada extends Mensagens {
         else if (jogadorDois == 2) fim = true;
         return fim;
     }
-
-    /**
-     * Quantidade de partidas selecionadas
-     */
-    public int setValor(int valor) {
-        return valor;
-    }
 }
 //Exemplo para dar velha: 00 01 02 10 11 12 21 20 22
 //Exemplo ganhar horizontalmente : 10 20 11 21 12
